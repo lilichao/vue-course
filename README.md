@@ -125,7 +125,7 @@
    将本地库上传gitee：
    
    ```bash
-   git remote add gitee https://gitee.com/ymhold/git-demo.git
+   git remote add gitee https://gitee.com/ymhold/vue-course.git
    git push -u gitee main
    ```
    
