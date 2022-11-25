@@ -170,7 +170,57 @@
   git push 远程仓库 --delete 标签名 # 删除远程标签
   ```
 
-  
+  ### gitignore
+
+- 默认情况下，git会监视项目中所有内容，但是有些内容比如node_modules目录中的内容，我们不希望它被git所管理。我们可以在项目目录中添加一个`.gitignore`文件，来设置那些需要git忽略的文件。
+
+### 	github的静态页面
+
+- 在github中，可以将自己的静态页面之间部署到github中，它会给我们提供一个地址使得我们的页面变成一个真正的网站，可以供用户访问。
+- 要求：
+  - 静态页面的分支必须叫做：gh-pages
+  - 如果希望页面可以通过xxx.github.io访问，则需要将库的名字配置为xxx.github.io 
+
+### 	docusaurus
+
+- facebook推出的开源的静态的内容管理系统，通过它可以快速的部署一个静态网站
+
+- 使用：
+
+  - 网址：
+
+    - https://docusaurus.io/
+
+  - 安装
+
+    - `npx create-docusaurus@latest my-website classic`
+
+  - 启动项目
+
+    - `npm start`或`yarn start`
+
+  - 构建项目
+
+    - `npm run build`或`yarn build`
+    - 
+
+  - 配置项目：
+
+    - docusaurus.config.js 项目的配置文件
+
+  - 添加页面：
+
+    - 在docusaurus框架中，页面分成三种：1.page，2.blog，3.doc
+
+  - 案例地址：
+
+    - https://github.com/lilichao/lilichao.github.io
+
+    
+
+
+
+
 
 
 
