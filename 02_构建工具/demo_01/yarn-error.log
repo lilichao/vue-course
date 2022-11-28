@@ -1,0 +1,41 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\lilichao\AppData\Local\node\corepack\yarn\1.22.19\bin\yarn.js add -D webpack webpac-cli
+
+PATH: 
+  C:\Python310\Scripts\;C:\Python310\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMake\bin;C:\Program Files\MariaDB 10.5\bin;c:\Program Files (x86)\Microsoft SQL Server\90\Tools\binn\;C:\Program Files (x86)\Tencent\微信web开发者工具\dll;C:\Pro;ram Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Users\lilichao\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\lilichao\AppData\Local\Microsoft\WindowsApps;C:\cygwin64\bin;C:\Users\lilichao\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\lilichao\AppData\Local\Programs\Fiddler;C:\Users\lilichao\AppData\Local\JetBrains\Toolbox\scripts;C:\Users\lilichao\AppData\Local\Microsoft\WindowsApps;C:\Users\lilichao\AppData\Roaming\nvm;C:\Program Files\nodejs;%PNPM_HOME%;C:\Users\lilichao\AppData\Local\Yarn\bin;C:\Users\lilichao\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.10.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.npmmirror.com/webpac-cli: [NOT_FOUND] webpac-cli not found
+      at params.callback [as _callback] (C:\Users\lilichao\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:66145:18)
+      at self.callback (C:\Users\lilichao\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (C:\Users\lilichao\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at Gunzip.<anonymous> (C:\Users\lilichao\AppData\Local\node\corepack\yarn\1.22.19\lib\cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at Gunzip.emit (node:events:513:28)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "demo_01",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
