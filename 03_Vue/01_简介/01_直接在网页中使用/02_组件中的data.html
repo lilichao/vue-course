@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- 引入vue -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            // 编写vue代码
+            // 创建一个根组件，在vue3中组件就是一个普通的js对象
+            // 组件用来创建组件实例，组件是组件实例的模板
+            // 组件 --> 组件生成组件实例 --> 虚拟DOM --> DOM（在页面中呈现）
+            const Root = {
+                data() {
+                    return {
+                        message: "Vue好棒！" // data方法返回的对象，其中的属性会自动添加到组件实例中
+                    }
+                }, // data是一个函数，需要一个对象作为返回值
+
+                // 在模板中可以直接访问组件实例中的属性
+                // 在模板中可以通过 {{属性名}} 来访问到组件实例中的属性
+                template: "<h1>我爱Vue，{{message}}</h1>" // 希望组件在页面中呈现的样子
+            }
+
+            // 创建app实例
+            //const app = Vue.createApp(Root)
+            // 将实例在页面中挂载
+            //app.mount("#app")
+
+            Vue.createApp(Root).mount("#app")
+        </script>
+    </body>
+</html>
