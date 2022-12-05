@@ -392,3 +392,26 @@
 ### HelloWorld
 
 1. 直接在网页中使用（像jQuery一样）
+
+   - `        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>`
+
+2. 使用vite
+
+   - `yarn add vite -D`
+
+3. 代码：
+
+   ```javascript
+   // 组件，就是一个普通js对象
+   const App = {}
+   
+   // 创建应用
+   const app = createApp(App)
+   
+   // 挂载到页面
+   app.mount("#root")
+   ```
+
+4. 自动创建项目
+   - `npm init vue@latest`
+   - `yarn create vue`
