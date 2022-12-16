@@ -18,52 +18,6 @@ const team = reactive({
     rate: 1,
     hot: 333760
 })
-
-const players = reactive([
-    {
-        name: "梅西",
-        img: "/images/messi.png",
-        rate: 1,
-        hot: 433760
-    },
-    {
-        name: "C罗",
-        img: "/images/ronaldo.png",
-        rate: 2,
-        hot: 333760
-    },
-    {
-        name: "内马尔",
-        img: "/images/neymar.png",
-        rate: 3,
-        hot: 233760
-    }
-])
-
-const teams = reactive([
-    {
-        name: "法国",
-        img: "/images/法国.jpg",
-        rate: 1,
-        hot: 333760
-    },
-    {
-        name: "巴西",
-        img: "/images/巴西.jpg",
-        rate: 2,
-        hot: 233760
-    },
-    {
-        name: "荷兰",
-        img: "/images/荷兰.jpg",
-        rate: 3,
-        hot: 133760
-    }
-])
-
-// 获取最大热度
-const playerMaxHot = players[0].hot
-const teamMaxHot = teams[0].hot
 </script>
 
 <template>
@@ -98,25 +52,13 @@ const teamMaxHot = teams[0].hot
             <div v-show="current === 0">
                 <!-- 球员 -->
                 <div class="tab-list">
-                    <!-- <TabItem :item="players[0]" :max-hot="maxHot"></TabItem>
-                    <TabItem :item="players[1]" :max-hot="maxHot"></TabItem>
-                    <TabItem :item="players[2]" :max-hot="maxHot"></TabItem> -->
-
-                    <TabItem
-                        v-for="player in players"
-                        :item="player"
-                        :max-hot="playerMaxHot"
-                    ></TabItem>
+                    <TabItem :item="player"></TabItem>
                 </div>
             </div>
             <div v-show="current === 1">
                 <!-- 球队 -->
                 <div class="tab-list">
-                    <TabItem
-                        v-for="team in teams"
-                        :item="team"
-                        :max-hot="teamMaxHot"
-                    ></TabItem>
+                    <TabItem :item="team"></TabItem>
                 </div>
             </div>
         </div>
