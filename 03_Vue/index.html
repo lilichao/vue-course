@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .box1 {
+                width: 200px;
+                height: 200px;
+                background-color: orange;
+            }
+
+            .box2 {
+                background-color: tomato;
+            }
+
+            .box3 {
+                width: 300px;
+                height: 400px;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="btn">点我一下</button>
+        <hr />
+        <div id="box1" class="box1"></div>
+        <script>
+            btn.onclick = () => {
+                // box1.classList.add("box2")
+                // 可以通过修改class来间接的影响样式，来减少重排的次数
+                // box1.style.width = "300px"
+                // box1.style.height = "400px"
+                // box1.style.fontSize = "20px"
+                // box1.classList.add("box3")
+                // box1.style.display = "none"
+                // box1.style.width = "300px"
+                // box1.style.height = "400px"
+                // box1.style.fontSize = "20px"
+                // div.style.display = "block"
+            }
+        </script>
+    </body>
+</html>
