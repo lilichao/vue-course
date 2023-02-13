@@ -12,6 +12,7 @@ function showMsg() {
     alert("hello")
 }
 </script>
+
 <template>
     <h1>属性的透传</h1>
     <h2 class="box1">我是h2</h2>
