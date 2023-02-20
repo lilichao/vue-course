@@ -16,12 +16,12 @@ function submitHandler() {
     <h1>Hello Vue</h1>
     <form @submit.prevent="submitHandler">
         <!-- 
-          v-model的修饰符
-            .lazy 使用change来处理数据
-            .trim 去除前后的空格
-            .number 将数据转换为数值
+        在vue中，为我们提供了v-model了可以快速完成表单的双向数据绑定
+
+        <input type="text" v-model="text" />
+        <input type="text" :value="text" @input="event => text = event.target.value" />
       -->
-        <div>信息：<input type="text" v-model.lazy.trim.number="text" /></div>
+        <div>信息：<input type="text" v-model="text" /></div>
         <div>
             是否：<input
                 type="checkbox"
