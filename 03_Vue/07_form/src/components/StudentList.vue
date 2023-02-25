@@ -2,12 +2,15 @@
 // 通过defineProps定义的属性在attrs中就不存在了
 // 使用自定义属性时，最好通过defineProps来声明一下
 const props = defineProps(["students"])
+const emits = defineEmits(["delStu"])
 
 // 定义一个删除学生的方法
 const delStuHandler = (index) => {
     if (confirm("该操作不可恢复，请确认！")) {
         // 删除当前的学生
-        props.students.splice(index, 1)
+        // props.students.splice(index, 1)
+        // props.delStu(index)
+        emits("delStu", index)
     }
 }
 </script>
@@ -34,6 +37,8 @@ const delStuHandler = (index) => {
                 <td>{{ stu.gender }}</td>
                 <td>{{ stu.address }}</td>
                 <td>
+                    <!-- 在模板中可以通过$emit()来触发自定义事件 -->
+                    <!-- <a href="#" @click.prevent="$emit('delStu', index)">删除</a> -->
                     <a href="#" @click.prevent="delStuHandler(index)">删除</a>
                 </td>
             </tr>

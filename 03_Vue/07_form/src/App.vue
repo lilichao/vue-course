@@ -33,10 +33,17 @@ const STU_ARR = ref([
         address: "女儿国"
     }
 ])
+
+// 添加一个删除学生的方法
+const delStudentByIndex = (index) => {
+    STU_ARR.value.splice(index, 1)
+    // console.log("删除学生")
+}
 </script>
 
 <template>
-    <StudentList :students="STU_ARR"></StudentList>
+    <!-- 可以将组件中的方法以自定义事件的形式发送给其他的组件 -->
+    <StudentList :students="STU_ARR" @del-stu="delStudentByIndex"></StudentList>
 </template>
 
 <style scoped></style>
