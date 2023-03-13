@@ -3,6 +3,8 @@
 
 import StudentItem from "./StudentItem.vue"
 
+import { inject, provide } from "vue"
+
 // 使用自定义属性时，最好通过defineProps来声明一下
 // const props = defineProps(["students"])
 // const emits = defineEmits(["delStu"])
@@ -23,10 +25,7 @@ import StudentItem from "./StudentItem.vue"
             </tr>
         </thead>
 
-        <StudentItem
-            :students="$attrs.students"
-            @del-stu="$attrs.onDelStu"
-        ></StudentItem>
+        <StudentItem></StudentItem>
     </table>
 </template>
 

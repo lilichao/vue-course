@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from "vue"
+import { ref, inject } from "vue"
 
-const emits = defineEmits(["addStudent"])
+const {addNewStudent} = inject("student")
+
 
 // 创建一个ref来存储新的学生信息
 const newStu = ref({
@@ -14,7 +15,7 @@ const submitHandler = () => {
     // console.log(newStu.value)
     // 调用方法，将newStu添加到数组中
 
-    emits("addStudent", { ...newStu.value })
+    addNewStudent({ ...newStu.value })
 
     newStu.value.name = ""
     newStu.value.age = 1

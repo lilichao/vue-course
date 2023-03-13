@@ -1,6 +1,7 @@
 <script setup>
-const props = defineProps(["students"])
-const emits = defineEmits(["delStu"])
+import { inject } from "vue"
+
+const { students, delStudentByIndex } = inject("student")
 
 // 定义一个删除学生的方法
 const delStuHandler = (index) => {
@@ -8,14 +9,15 @@ const delStuHandler = (index) => {
         // 删除当前的学生
         // props.students.splice(index, 1)
         // props.delStu(index)
-        emits("delStu", index)
+        // emits("delStu", index)
+        delStudentByIndex(index)
     }
 }
 </script>
 
 <template>
     <tbody>
-        <tr v-for="(stu, index) in props.students">
+        <tr v-for="(stu, index) in students">
             <td>{{ stu.id }}</td>
             <td>{{ stu.name }}</td>
             <td>{{ stu.age }}</td>
