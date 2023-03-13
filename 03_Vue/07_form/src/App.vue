@@ -1,6 +1,7 @@
 <script setup>
 import StudentList from "./components/StudentList.vue"
 import { ref } from "vue"
+import StudentForm from "./components/StudentForm.vue"
 
 // 发送请求来向服务器加载数据
 const STU_ARR = ref([
@@ -39,11 +40,21 @@ const delStudentByIndex = (index) => {
     STU_ARR.value.splice(index, 1)
     // console.log("删除学生")
 }
+
+// 添加学生的方法
+const addNewStudent = (student) => {
+    const lastId = STU_ARR.value.at(-1)?.id
+    const newId = !isNaN(lastId) ? lastId + 1 : 1
+    student.id = newId
+    STU_ARR.value.push(student)
+}
 </script>
 
 <template>
     <!-- 可以将组件中的方法以自定义事件的形式发送给其他的组件 -->
     <StudentList :students="STU_ARR" @del-stu="delStudentByIndex"></StudentList>
+    <hr />
+    <StudentForm @add-student="addNewStudent"></StudentForm>
 </template>
 
 <style scoped></style>
