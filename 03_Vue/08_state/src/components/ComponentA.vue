@@ -1,8 +1,13 @@
 <script setup>
 import { inject, ref } from "vue"
-import { countStore } from "@/store/count"
+// import { countStore } from "@/store/count"
+// 引入store钩子
+import { useCountStore } from "../store/countStore"
 
 // const {count, increment} = inject("count")
+
+// 获取store实例
+const countStore = useCountStore()
 
 /* 
     状态管理
@@ -21,9 +26,16 @@ import { countStore } from "@/store/count"
 */
 </script>
 <template>
-    <h3>
+    <!-- <h3>
         ComponentA --
         {{ countStore.count }} --
+        <button @click="countStore.increment">按钮</button>
+    </h3> -->
+
+    <h3>
+        ComponentA2 --
+        {{ countStore.count }} -- {{ countStore.double }} --
+        {{ countStore.name }} --
         <button @click="countStore.increment">按钮</button>
     </h3>
 </template>
