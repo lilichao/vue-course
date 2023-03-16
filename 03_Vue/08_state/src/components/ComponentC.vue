@@ -30,11 +30,11 @@ const { name, age, title } = storeToRefs(stuStore)
 // state中的属性（方法），都可以通过store对象直接访问
 
 const clickHandler = () => {
-    // stuStore.$patch({
-    //     name: "孙小圣",
-    //     age: 20,
-    //     skills: ["救命毫毛"]
-    // })
+    stuStore.$patch({
+        name: "孙小圣",
+        age: 20,
+        skills: ["救命毫毛"]
+    })
 
     // stuStore.$patch((state) => {
     //     state.skills.push("救命毫毛")
@@ -43,8 +43,32 @@ const clickHandler = () => {
     // stuStore.skills.push("哈哈")
 
     // stuStore.$patch({ name: "孙小圣" })
-    stuStore.$state = { name: "孙小圣" }
+    // stuStore.$state = { name: "孙小圣" }
 }
+
+/* 
+    store的订阅
+        - 当store中的state发生变化时，做一些响应的操作
+        - store.$subscribe(函数, 配置对象)
+*/
+stuStore.$subscribe(
+    (mutation, state) => {
+        // mutation 表示修改的信息
+        console.log(mutation.events)
+        console.log(mutation.events[0] === mutation.events[1])
+
+        // if(state.token){
+        //     // 登录，向本地存储中添加内容
+        // }else{
+        //     // 登出，从本地存储中移除内容
+        // }
+        console.log("state发生变化了", state)
+
+        // 使用订阅时不要在回调函数中直接修改state
+        // state.age++
+    },
+    { detached: true }
+)
 </script>
 <template>
     <h4>
