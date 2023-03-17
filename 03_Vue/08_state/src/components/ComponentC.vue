@@ -54,25 +54,44 @@ const clickHandler = () => {
 stuStore.$subscribe(
     (mutation, state) => {
         // mutation 表示修改的信息
-        console.log(mutation.events)
-        console.log(mutation.events[0] === mutation.events[1])
-
+        // console.log(mutation.events)
+        // console.log(mutation.events[0] === mutation.events[1])
+        // console.log(mutation.payload)
         // if(state.token){
         //     // 登录，向本地存储中添加内容
         // }else{
         //     // 登出，从本地存储中移除内容
         // }
-        console.log("state发生变化了", state)
-
+        // console.log("state发生变化了", state)
         // 使用订阅时不要在回调函数中直接修改state
         // state.age++
     },
     { detached: true }
 )
+
+// $onAction 用来订阅action的调用
+stuStore.$onAction(({ name, store, args, after, onError }) => {
+    /* 
+        name 调用的action的名字
+        store store的实例
+        args action接收到的参数
+        after() 可以设置一个回调函数，函数会在action成功调用后触发
+        onError() 可以设置一个回调函数，函数会在action调用失败后触发
+    */
+
+    after(() => {
+        console.log(name + "成功执行！")
+    })
+
+    onError((err) => {
+        console.log(name + "执行失败！", err)
+    })
+})
 </script>
 <template>
     <h4>
         ComponentC -- {{ name }} -- {{ age }} -- {{ title }} --
+        {{ stuStore.double }} --
         {{ stuStore.skills }}
         <!-- {{ countStore.count }} --
         <button @click="countStore.increment">按钮</button> -->
