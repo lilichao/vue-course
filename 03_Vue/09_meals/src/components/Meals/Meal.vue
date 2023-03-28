@@ -1,4 +1,5 @@
 <script setup>
+import Counter from "../UI/Counter.vue"
 const props = defineProps(["meal"])
 const meal = props.meal
 </script>
@@ -13,9 +14,12 @@ const meal = props.meal
                 <h2>{{ meal.title }}</h2>
                 <p>{{ meal.desc }}</p>
             </div>
-            <!-- 
-            
-            {{ meal.price }} -->
+
+            <div class="price-btn">
+                <span class="price">{{ meal.price }}</span>
+
+                <Counter></Counter>
+            </div>
         </div>
     </div>
 </template>
@@ -46,5 +50,20 @@ const meal = props.meal
 .info p {
     font-size: 24rem;
     color: #9f9f9f;
+}
+
+.price-btn {
+    display: flex;
+    margin-top: 40rem;
+    justify-content: space-between;
+}
+
+.price {
+    font-size: 30rem;
+    font-weight: bold;
+}
+
+.price::before {
+    content: "￥";
 }
 </style>
