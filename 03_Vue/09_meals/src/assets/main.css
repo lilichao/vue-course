@@ -7,3 +7,8 @@
 html {
     font-size: calc(100vw / 750);
 }
+
+img {
+    width: 100%;
+    vertical-align: middle;
+}
