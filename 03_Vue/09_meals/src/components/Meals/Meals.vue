@@ -9,7 +9,8 @@ const meals = useMealsStore()
     <!-- 所有的汉堡的容器 -->
     <div class="meals">
         <!-- 显示商品信息 -->
-        <Meal v-for="item in meals.data" :meal="item"></Meal>
+        <Meal v-for="item in meals.filterMeals" :meal="item"></Meal>
+        <h2 v-if="meals.filterMeals.length == 0">没有找到指定的商品</h2>
     </div>
 </template>
 

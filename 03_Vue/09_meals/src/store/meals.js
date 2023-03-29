@@ -52,6 +52,16 @@ export const useMealsStore = defineStore("meals", {
                 price: 12,
                 img: "/images/meals/7.png"
             }
-        ]
-    })
+        ],
+
+        keyword: ""
+    }),
+
+    getters: {
+        filterMeals: (state) => {
+            return state.data.filter(
+                (item) => item.title.indexOf(state.keyword) != -1
+            )
+        }
+    }
 })
