@@ -1,16 +1,23 @@
 <script setup>
 import cartBag from "../../assets/bag.png"
+import { useMealsStore } from "../../store/meals"
+
+const meals = useMealsStore()
 </script>
 <template>
     <div class="cart-bar">
         <div class="cart-bag">
             <img :src="cartBag" alt="" />
-            <span class="total-count">11</span>
+            <span v-show="meals.totalCount > 0" class="total-count">{{
+                meals.totalCount
+            }}</span>
         </div>
 
         <div class="total-amount">
-            <!-- <p class="no-goods">未选购商品</p> -->
-            <p class="has-goods">20</p>
+            <p v-show="meals.totalCount <= 0" class="no-goods">未选购商品</p>
+            <p v-show="meals.totalCount > 0" class="has-goods">
+                {{ meals.amount }}
+            </p>
         </div>
 
         <button class="checkout">去结算</button>
@@ -37,11 +44,14 @@ import cartBag from "../../assets/bag.png"
 }
 
 .total-count {
+    width: 40rem;
+    height: 40rem;
+    text-align: center;
+    line-height: 40rem;
     position: absolute;
     background-color: red;
     border-radius: 50%;
     right: -20rem;
-    padding: 6rem;
     color: #fff;
     font-weight: bold;
 }

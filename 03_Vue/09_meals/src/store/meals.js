@@ -62,6 +62,35 @@ export const useMealsStore = defineStore("meals", {
             return state.data.filter(
                 (item) => item.title.indexOf(state.keyword) != -1
             )
+        },
+
+        // 获取购物车中的所有商品
+        cartMeals: (state) => {
+            return state.data.filter((item) => item.count > 0)
+        },
+
+        // 获取购物车中商品的总数量
+        totalCount: (state) => {
+            // 如果购物车中没有商品直接返回0
+            if (state.cartMeals.length <= 0) return 0
+
+            // 购物车中有商品，计算商品的总数量
+            return state.cartMeals.reduce(
+                (result, item) => result + item.count,
+                0
+            )
+        },
+
+        // 获取购物车中商品的总价格
+        amount: (state) => {
+            // 如果购物车中没有商品直接返回0
+            if (state.cartMeals.length <= 0) return 0
+
+            // 购物车中有商品，计算商品的总数量
+            return state.cartMeals.reduce(
+                (result, item) => result + item.count * item.price,
+                0
+            )
         }
     },
 
