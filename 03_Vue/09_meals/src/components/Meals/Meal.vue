@@ -17,7 +17,7 @@ const props = defineProps(["meal"])
             <div class="price-btn">
                 <span class="price">{{ props.meal.price }}</span>
 
-                <Counter></Counter>
+                <Counter :meal="props.meal"></Counter>
             </div>
         </div>
     </div>

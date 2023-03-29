@@ -63,5 +63,22 @@ export const useMealsStore = defineStore("meals", {
                 (item) => item.title.indexOf(state.keyword) != -1
             )
         }
+    },
+
+    actions: {
+        addMealToCart(meal) {
+            // 修改购买食物的数量
+            // meal还没有添加到购物车中
+            if (isNaN(meal.count)) {
+                meal.count = 0
+            }
+
+            meal.count++
+        },
+
+        subMealFromCart(meal) {
+            if (isNaN(meal.count) || meal.count <= 0) return
+            meal.count--
+        }
     }
 })

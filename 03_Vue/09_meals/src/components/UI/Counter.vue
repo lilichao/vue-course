@@ -1,19 +1,21 @@
 <script setup>
 import { ref } from "vue"
+import { useMealsStore } from "../../store/meals"
 
-const count = ref(0)
+const meals = useMealsStore()
+const props = defineProps(["meal"])
 </script>
 
 <template>
     <div class="counter">
-        <template v-if="count > 0">
-            <button class="sub" @click="count--">
+        <template v-if="props.meal.count > 0">
+            <button class="sub" @click="meals.subMealFromCart(props.meal)">
                 <i class="ri-subtract-line"></i>
             </button>
-            <span class="count">{{ count }}</span>
+            <span class="count">{{ props.meal.count }}</span>
         </template>
 
-        <button class="add" @click="count++">
+        <button class="add" @click="meals.addMealToCart(props.meal)">
             <i class="ri-add-line"></i>
         </button>
     </div>
