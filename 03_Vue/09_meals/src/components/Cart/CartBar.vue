@@ -1,10 +1,17 @@
 <script setup>
+import { ref } from "vue"
 import cartBag from "../../assets/bag.png"
 import { useMealsStore } from "../../store/meals"
+import CartDetails from "./CartDetails.vue"
 
 const meals = useMealsStore()
+const showDetails = ref(false)
 </script>
 <template>
+    <CartDetails
+        :is-show="showDetails"
+        @hide="showDetails = false"
+    ></CartDetails>
     <div class="cart-bar">
         <div class="cart-bag">
             <img :src="cartBag" alt="" />
@@ -15,7 +22,11 @@ const meals = useMealsStore()
 
         <div class="total-amount">
             <p v-show="meals.totalCount <= 0" class="no-goods">未选购商品</p>
-            <p v-show="meals.totalCount > 0" class="has-goods">
+            <p
+                @click="showDetails = true"
+                v-show="meals.totalCount > 0"
+                class="has-goods"
+            >
                 {{ meals.amount }}
             </p>
         </div>
@@ -35,6 +46,7 @@ const meals = useMealsStore()
     right: 0;
     margin: 0 auto;
     border-radius: 60rem;
+    z-index: 9999;
 }
 
 .cart-bag {
