@@ -9,7 +9,7 @@ const meals = useMealsStore()
         <div class="cart-details">
             <div class="header">
                 <h2>餐品详情</h2>
-                <a href="javascript:;" >
+                <a href="javascript:;">
                     <i class="ri-delete-bin-line"></i>
                     清空购物车
                 </a>
@@ -24,27 +24,23 @@ const meals = useMealsStore()
     position: absolute;
     bottom: 0;
     width: 750rem;
-    max-height: 70%;
     background-color: #fff;
-    overflow: auto;
     border-top-left-radius: 40rem;
     border-top-right-radius: 40rem;
 }
 
 .meals {
-    padding-top: 40rem;
-    height: 100%;
+    height: auto;
+    max-height: calc(280rem * 4);
 }
 
 .header {
-    position: fixed;
-    width: 750rem;
     display: flex;
     background-color: #fff;
     border-top-left-radius: 40rem;
     border-top-right-radius: 40rem;
     justify-content: space-between;
-    padding: 20rem 40rem 0;
+    padding: 20rem 40rem;
 }
 
 .header h2 {
