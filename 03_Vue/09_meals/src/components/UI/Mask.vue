@@ -5,9 +5,12 @@ const props = defineProps(["isShow"])
 const emits = defineEmits(["hide"])
 </script>
 <template>
-    <div @click.self="$emit('hide')" class="mask" v-show="props.isShow">
-        <slot></slot>
-    </div>
+    <!-- Teleport可以将组件渲染到网页的指定位置 -->
+    <Teleport to="body">
+        <div @click.self="$emit('hide')" class="mask" v-show="props.isShow">
+            <slot></slot>
+        </div>
+    </Teleport>
 </template>
 
 <style scoped>
