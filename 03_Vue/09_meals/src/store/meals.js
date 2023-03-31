@@ -108,6 +108,10 @@ export const useMealsStore = defineStore("meals", {
         subMealFromCart(meal) {
             if (isNaN(meal.count) || meal.count <= 0) return
             meal.count--
+        },
+
+        clearCart() {
+            this.cartMeals.forEach((item) => (item.count = 0))
         }
     }
 })

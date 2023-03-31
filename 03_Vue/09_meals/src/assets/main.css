@@ -12,3 +12,8 @@ img {
     width: 100%;
     vertical-align: middle;
 }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
