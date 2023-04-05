@@ -1,5 +1,6 @@
 <script setup>
 import { useMealsStore } from "../../store/meals"
+import Counter from "../UI/Counter.vue"
 
 const props = defineProps(["isShow"])
 const emits = defineEmits(["close"])
@@ -16,8 +17,19 @@ const meals = useMealsStore()
         <div class="details">
             <header>餐品详情</header>
             <div class="list">
-                <div v-for="item in meals.cartMeals">
-                    {{ item.title }}
+                <div class="item" v-for="item in meals.cartMeals">
+                    <div class="img-wrap">
+                        <img :src="item.img" :alt="item.title" />
+                    </div>
+                    <div class="info">
+                        <h2 class="title">{{ item.title }}</h2>
+                        <div class="count">
+                            <Counter :meal="item"></Counter>
+                            <span class="amount">{{
+                                item.count * item.price
+                            }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer>
@@ -90,5 +102,42 @@ const meals = useMealsStore()
 .details footer span {
     font-weight: bold;
     font-size: 30rem;
+}
+
+.list {
+    max-height: 900rem;
+    overflow: auto;
+}
+
+.item {
+    display: flex;
+}
+
+.img-wrap {
+    width: 160rem;
+}
+
+.info {
+    flex: auto;
+}
+
+.title {
+    margin: 26rem 0;
+    font-size: 26rem;
+}
+
+.count {
+    display: flex;
+    justify-content: space-between;
+}
+
+.amount {
+    font-size: 26rem;
+    font-weight: bold;
+}
+
+.amount::before {
+    content: "￥";
+    font-weight: normal;
 }
 </style>
